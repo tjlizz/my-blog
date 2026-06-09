@@ -26,7 +26,7 @@ npm install
 
 - `title`：博客名称，会用于导航、页面标题和结构化数据
 - `description`：站点描述，会用于首页 meta description
-- `siteUrl`：站点域名，用于生成绝对 canonical、`sitemap.xml` 和 `robots.txt`
+- `siteUrl`：站点域名，用于生成绝对 canonical、`sitemap.xml`、`rss.xml` 和 `robots.txt`
 - `author`：文章结构化数据中的作者
 - `language`：HTML `lang` 属性
 - `googleAnalyticsId`：Google Analytics 统计 ID，留空则不输出统计脚本
@@ -140,7 +140,14 @@ dist/categories/技术思考/index.html
 dist/search/index.html
 dist/search-index.json
 dist/sitemap.xml
+dist/rss.xml
 dist/robots.txt
+```
+
+RSS 订阅地址：
+
+```txt
+/rss.xml
 ```
 
 中文标签和中文分类会保留为目录名，同时页面中的链接会自动进行 URL 编码。

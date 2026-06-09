@@ -144,10 +144,42 @@ ${urls.join('\n')}
 
 function renderRobots(config) {
   const sitemap = absoluteUrl(config.siteUrl, '/sitemap.xml');
+  const rss = absoluteUrl(config.siteUrl, '/rss.xml');
   return `User-agent: *
 Allow: /
 
 Sitemap: ${sitemap}
+RSS: ${rss}
+`;
+}
+
+function renderRss(config, posts) {
+  const latestPostDate = posts[0]?.date || new Date();
+  const items = posts.map((post) => {
+    const postUrl = absoluteUrl(config.siteUrl, post.url);
+    return `    <item>
+      <title>${escapeHtml(post.title)}</title>
+      <link>${escapeHtml(postUrl)}</link>
+      <guid isPermaLink="true">${escapeHtml(postUrl)}</guid>
+      <pubDate>${post.date.toUTCString()}</pubDate>
+      <description>${escapeHtml(post.description || post.excerpt)}</description>
+      ${post.categories.map((category) => `<category>${escapeHtml(category)}</category>`).join('\n      ')}
+      ${post.tags.map((tag) => `<category>${escapeHtml(tag)}</category>`).join('\n      ')}
+    </item>`;
+  }).join('\n');
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>${escapeHtml(config.title)}</title>
+    <link>${escapeHtml(absoluteUrl(config.siteUrl, '/'))}</link>
+    <description>${escapeHtml(config.description)}</description>
+    <language>${escapeHtml(config.language)}</language>
+    <lastBuildDate>${latestPostDate.toUTCString()}</lastBuildDate>
+    <generator>Blog System</generator>
+${items}
+  </channel>
+</rss>
 `;
 }
 
@@ -203,6 +235,7 @@ export async function build() {
   await writeFile(path.join(distDir, 'search', 'index.html'), await renderSearchPage(config));
   await writeFile(path.join(distDir, 'search-index.json'), JSON.stringify(createSearchIndex(posts), null, 2));
   await writeFile(path.join(distDir, 'sitemap.xml'), renderSitemap(config, posts, stats));
+  await writeFile(path.join(distDir, 'rss.xml'), renderRss(config, posts));
   await writeFile(path.join(distDir, 'robots.txt'), renderRobots(config));
 
   return {
