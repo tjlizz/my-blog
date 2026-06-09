@@ -80,31 +80,59 @@ async function resetDist() {
   await ensureDir(distDir);
 }
 
-function renderSitemapUrl(config, pathname, lastmod) {
+function renderSitemapUrl(config, { pathname, lastmod, changefreq, priority }) {
   return [
     '  <url>',
     `    <loc>${escapeHtml(absoluteUrl(config.siteUrl, pathname))}</loc>`,
-    lastmod ? `    <lastmod>${lastmod}</lastmod>` : '',
+    `    <lastmod>${lastmod}</lastmod>`,
+    `    <changefreq>${changefreq}</changefreq>`,
+    `    <priority>${priority}</priority>`,
     '  </url>'
-  ].filter(Boolean).join('\n');
+  ].join('\n');
 }
 
 function renderSitemap(config, posts, stats) {
+  const latestPostDate = posts[0]?.dateISO.slice(0, 10) || new Date().toISOString().slice(0, 10);
   const urls = [
-    renderSitemapUrl(config, '/'),
-    renderSitemapUrl(config, '/search/')
+    renderSitemapUrl(config, {
+      pathname: '/',
+      lastmod: latestPostDate,
+      changefreq: 'daily',
+      priority: '1.0'
+    }),
+    renderSitemapUrl(config, {
+      pathname: '/search/',
+      lastmod: latestPostDate,
+      changefreq: 'weekly',
+      priority: '0.5'
+    })
   ];
 
   for (const post of posts) {
-    urls.push(renderSitemapUrl(config, post.url, post.dateISO.slice(0, 10)));
+    urls.push(renderSitemapUrl(config, {
+      pathname: post.url,
+      lastmod: post.dateISO.slice(0, 10),
+      changefreq: 'monthly',
+      priority: '1.0'
+    }));
   }
 
   for (const [tag] of stats.tags) {
-    urls.push(renderSitemapUrl(config, urlJoin('tags', tag)));
+    urls.push(renderSitemapUrl(config, {
+      pathname: urlJoin('tags', tag),
+      lastmod: latestPostDate,
+      changefreq: 'weekly',
+      priority: '0.6'
+    }));
   }
 
   for (const [category] of stats.categories) {
-    urls.push(renderSitemapUrl(config, urlJoin('categories', category)));
+    urls.push(renderSitemapUrl(config, {
+      pathname: urlJoin('categories', category),
+      lastmod: latestPostDate,
+      changefreq: 'weekly',
+      priority: '0.7'
+    }));
   }
 
   return `<?xml version="1.0" encoding="UTF-8"?>
