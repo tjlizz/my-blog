@@ -40,6 +40,8 @@
 
 html {
   background: var(--bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 104px;
 }
 
 body {
@@ -278,15 +280,79 @@ a:hover {
 
 .post-layout {
   display: grid;
-  grid-template-columns: minmax(0, 800px) 260px;
+  grid-template-columns: 220px minmax(0, 800px) 260px;
   justify-content: center;
   align-items: start;
-  gap: 72px;
+  gap: 56px;
 }
 
 .article {
   width: 100%;
   min-width: 0;
+}
+
+.post-toc {
+  position: sticky;
+  top: 104px;
+  max-height: calc(100vh - 128px);
+  overflow: auto;
+  margin-top: 6px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.post-toc h2 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+
+.post-toc ol {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-toc li {
+  min-width: 0;
+}
+
+.post-toc a {
+  display: block;
+  overflow: hidden;
+  padding: 5px 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: opacity 180ms ease, color 180ms ease;
+}
+
+.post-toc a:hover {
+  color: var(--text);
+}
+
+.post-toc .toc-level-2 {
+  padding-left: 12px;
+}
+
+.post-toc .toc-level-3 {
+  padding-left: 24px;
+}
+
+.post-toc .toc-level-4 {
+  padding-left: 36px;
+}
+
+.post-toc-empty {
+  visibility: hidden;
 }
 
 .article-header {
@@ -309,6 +375,7 @@ a:hover {
 .markdown-body h2,
 .markdown-body h3,
 .markdown-body h4 {
+  scroll-margin-top: 112px;
   margin: 34px 0 14px;
   color: var(--text);
   font-weight: 700;
@@ -575,6 +642,22 @@ a:hover {
     padding-top: 28px;
   }
 
+  .post-toc {
+    position: static;
+    max-height: none;
+    margin-top: 0;
+    padding-bottom: 22px;
+  }
+
+  .post-toc-empty {
+    display: none;
+  }
+
+  .post-toc ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 18px;
+  }
+
   .page-heading h1,
   .article-header h1 {
     font-size: 34px;
@@ -613,6 +696,10 @@ a:hover {
 
   .markdown-body {
     font-size: 16px;
+  }
+
+  .post-toc ol {
+    grid-template-columns: 1fr;
   }
 
 }

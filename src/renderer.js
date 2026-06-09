@@ -92,7 +92,7 @@ function renderGoogleAnalytics(id) {
 }
 
 function renderTableOfContents(items) {
-  if (!items.length) return '';
+  if (!items.length) return '<div class="post-toc post-toc-empty" aria-hidden="true"></div>';
 
   return `
     <nav class="post-toc" aria-label="文章目录">
