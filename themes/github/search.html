@@ -1,0 +1,79 @@
+<section class="page-heading">
+  <h1>搜索</h1>
+</section>
+<section class="search-panel">
+  <label class="search-label" for="search-input">关键词</label>
+  <input id="search-input" class="search-input" type="search" placeholder="搜索标题、摘要、正文、标签或分类" autocomplete="off">
+  <p id="search-count" class="search-count"></p>
+  <div id="search-results" class="post-list"></div>
+</section>
+<script>
+  const input = document.getElementById('search-input');
+  const count = document.getElementById('search-count');
+  const results = document.getElementById('search-results');
+  let posts = [];
+  input.value = new URLSearchParams(window.location.search).get('q') || '';
+
+  function escapeHtml(value) {
+    return String(value)
+      .replaceAll('&', '&amp;')
+      .replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;')
+      .replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;');
+  }
+
+  function render(items) {
+    count.textContent = items.length ? `找到 ${items.length} 篇文章` : '没有匹配的文章';
+    results.innerHTML = items.map((post) => `
+      <article class="post-card">
+        <h2><a href="${post.url}">${escapeHtml(post.title)}</a></h2>
+        <div class="post-meta">
+          ${post.categories.map((item) => `<span class="meta-pill meta-pill-category">${escapeHtml(item)}</span>`).join('')}
+          ${post.tags.map((item) => `<span class="meta-pill">${escapeHtml(item)}</span>`).join('')}
+        </div>
+        <p>${escapeHtml(post.excerpt)}</p>
+      </article>
+    `).join('');
+  }
+
+  function search(keyword) {
+    const words = keyword.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!words.length) {
+      count.textContent = '';
+      results.innerHTML = '';
+      return;
+    }
+
+    const matched = posts.filter((post) => {
+      const haystack = [
+        post.title,
+        post.excerpt,
+        post.content,
+        post.tags.join(' '),
+        post.categories.join(' ')
+      ].join(' ').toLowerCase();
+      return words.every((word) => haystack.includes(word));
+    });
+
+    render(matched);
+  }
+
+  fetch('/search-index.json')
+    .then((response) => response.json())
+    .then((data) => {
+      posts = data;
+      search(input.value);
+    });
+
+  input.addEventListener('input', () => {
+    const url = new URL(window.location.href);
+    if (input.value.trim()) {
+      url.searchParams.set('q', input.value.trim());
+    } else {
+      url.searchParams.delete('q');
+    }
+    window.history.replaceState({}, '', url);
+    search(input.value);
+  });
+</script>

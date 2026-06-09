@@ -1,0 +1,17 @@
+{
+  "name": "blog-system",
+  "version": "1.0.0",
+  "description": "A lightweight Node.js static blog generator with a GitHub-inspired reading theme.",
+  "type": "module",
+  "scripts": {
+    "build": "node src/build.js",
+    "dev": "node src/server.js"
+  },
+  "dependencies": {
+    "chokidar": "^3.6.0",
+    "gray-matter": "^4.0.3",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.0"
+  },
+  "devDependencies": {}
+}

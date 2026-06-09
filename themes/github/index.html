@@ -1,0 +1,15 @@
+<section class="page-heading">
+  <h1>{{ pageTitle }}</h1>
+  <p class="page-intro">{{ pageIntro }}</p>
+  <p class="stats">
+    <span>{{ postCount }} 篇文章</span>
+    <span>{{ categoryCount }} 个分类</span>
+    <span>{{ tagCount }} 个标签</span>
+  </p>
+</section>
+<div class="home-grid">
+  <section class="post-list">
+    {{ posts }}
+  </section>
+  {{ sidebar }}
+</div>

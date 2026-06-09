@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1000" viewBox="0 0 1500 1000" role="img" aria-labelledby="title desc">
+  <title id="title">SSL pricing factors</title>
+  <desc id="desc">Five major factors behind SSL certificate pricing: validation cost, insurance, brand, scope, and lifecycle management.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbfcfe"/>
+      <stop offset="100%" stop-color="#eef3fb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#7383a7" flood-opacity="0.16"/>
+    </filter>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1c2740; }
+      .h1 { font-size: 50px; font-weight: 700; }
+      .sub { font-size: 25px; fill: #5a6680; }
+      .num { font-size: 28px; font-weight: 800; fill: #ffffff; }
+      .title { font-size: 30px; font-weight: 700; }
+      .body { font-size: 22px; fill: #44516c; }
+    </style>
+  </defs>
+  <rect width="1500" height="1000" fill="url(#bg)"/>
+  <text x="100" y="95" class="h1">SSL 证书为什么贵？主要贵在这 5 个地方</text>
+  <text x="100" y="140" class="sub">不是算法更高级，而是验证链路、风险承担和服务内容更多。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="100" y="210" width="400" height="220" rx="28" fill="#e4f0ff"/>
+    <rect x="550" y="210" width="400" height="220" rx="28" fill="#eef7df"/>
+    <rect x="1000" y="210" width="400" height="220" rx="28" fill="#fff2da"/>
+    <rect x="325" y="500" width="400" height="220" rx="28" fill="#fbe6eb"/>
+    <rect x="775" y="500" width="400" height="220" rx="28" fill="#e9e3fb"/>
+  </g>
+
+  <g>
+    <circle cx="155" cy="265" r="28" fill="#3f7ddf"/>
+    <text x="145" y="275" class="num">1</text>
+    <text x="195" y="275" class="title">验证成本</text>
+    <text x="135" y="330" class="body">DV 可以全自动签发，边际成本极低；</text>
+    <text x="135" y="365" class="body">OV/EV 需要人工审核、留档和复核。</text>
+  </g>
+
+  <g>
+    <circle cx="605" cy="265" r="28" fill="#6da633"/>
+    <text x="595" y="275" class="num">2</text>
+    <text x="645" y="275" class="title">保险赔付</text>
+    <text x="585" y="330" class="body">高端证书通常附带更高赔付上限，</text>
+    <text x="585" y="365" class="body">本质上是在卖“出问题时谁来兜底”。</text>
+  </g>
+
+  <g>
+    <circle cx="1055" cy="265" r="28" fill="#d89a1b"/>
+    <text x="1045" y="275" class="num">3</text>
+    <text x="1095" y="275" class="title">品牌溢价</text>
+    <text x="1035" y="330" class="body">DigiCert、GlobalSign 这类老牌 CA，</text>
+    <text x="1035" y="365" class="body">在审计、合规和商务背书里更“好解释”。</text>
+  </g>
+
+  <g>
+    <circle cx="380" cy="555" r="28" fill="#d25a73"/>
+    <text x="370" y="565" class="num">4</text>
+    <text x="420" y="565" class="title">覆盖范围</text>
+    <text x="360" y="620" class="body">通配符和多域名证书要覆盖更多主机名，</text>
+    <text x="360" y="655" class="body">因此定价高于普通单域名证书。</text>
+  </g>
+
+  <g>
+    <circle cx="830" cy="555" r="28" fill="#7457d5"/>
+    <text x="820" y="565" class="num">5</text>
+    <text x="870" y="565" class="title">生命周期服务</text>
+    <text x="810" y="620" class="body">更长周期、续期提醒、部署支持和监控，</text>
+    <text x="810" y="655" class="body">都会进入最终售价。</text>
+  </g>
+
+  <rect x="100" y="815" width="1300" height="88" rx="24" fill="#1c2740"/>
+  <text x="150" y="870" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;font-size:28px;font-weight:700;fill:#ffffff;">免费 DV 之所以存在，是因为自动化把验证成本压到了接近零。</text>
+</svg>

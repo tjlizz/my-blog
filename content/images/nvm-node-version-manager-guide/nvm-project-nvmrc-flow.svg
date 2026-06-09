@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="920" viewBox="0 0 1480 920" role="img" aria-labelledby="title desc">
+  <title id="title">NVM and .nvmrc project flow</title>
+  <desc id="desc">A project onboarding flow showing clone, read .nvmrc, install or use Node version, and start development.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbfcfe"/>
+      <stop offset="100%" stop-color="#eef4f8"/>
+    </linearGradient>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1d2a3f; }
+      .h1 { font-size: 50px; font-weight: 700; }
+      .sub { font-size: 25px; fill: #59657d; }
+      .step { font-size: 28px; font-weight: 700; }
+      .body { font-size: 23px; fill: #45526b; }
+      .tag { font-size: 20px; font-weight: 700; fill: #ffffff; }
+      .cmd { font-size: 22px; font-weight: 700; fill: #18304f; }
+    </style>
+  </defs>
+  <rect width="1480" height="920" fill="url(#bg)"/>
+  <text x="100" y="95" class="h1">`.nvmrc` 才是团队里真正靠谱的版本约束</text>
+  <text x="100" y="140" class="sub">README 会被忽略，项目根目录里的版本文件不会。</text>
+
+  <g>
+    <rect x="95" y="240" width="270" height="220" rx="28" fill="#ffffff"/>
+    <rect x="140" y="270" width="92" height="36" rx="18" fill="#4a80c7"/>
+    <text x="171" y="294" class="tag">Step 1</text>
+    <text x="140" y="355" class="step">clone 项目</text>
+    <text x="140" y="395" class="body">拿到仓库后先别急着</text>
+    <text x="140" y="430" class="body">直接 `npm install`。</text>
+  </g>
+
+  <g>
+    <rect x="415" y="240" width="270" height="220" rx="28" fill="#ffffff"/>
+    <rect x="460" y="270" width="92" height="36" rx="18" fill="#2f9a6a"/>
+    <text x="491" y="294" class="tag">Step 2</text>
+    <text x="460" y="355" class="step">读取 `.nvmrc`</text>
+    <text x="460" y="395" class="body">比如文件里写着</text>
+    <text x="460" y="430" class="cmd">18.17.1</text>
+  </g>
+
+  <g>
+    <rect x="735" y="240" width="270" height="220" rx="28" fill="#ffffff"/>
+    <rect x="780" y="270" width="92" height="36" rx="18" fill="#d28a00"/>
+    <text x="811" y="294" class="tag">Step 3</text>
+    <text x="780" y="355" class="step">执行 `nvm install`</text>
+    <text x="780" y="395" class="body">没装就下载，装过就直接</text>
+    <text x="780" y="430" class="body">切过去。</text>
+  </g>
+
+  <g>
+    <rect x="1055" y="240" width="330" height="220" rx="28" fill="#ffffff"/>
+    <rect x="1100" y="270" width="92" height="36" rx="18" fill="#d94b62"/>
+    <text x="1131" y="294" class="tag">Step 4</text>
+    <text x="1100" y="355" class="step">开始开发</text>
+    <text x="1100" y="395" class="body">版本正确，依赖安装和构建</text>
+    <text x="1100" y="430" class="body">才有讨论价值。</text>
+  </g>
+
+  <path d="M365 350 H415" stroke="#90a4c8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M685 350 H735" stroke="#90a4c8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1005 350 H1055" stroke="#90a4c8" stroke-width="8" stroke-linecap="round"/>
+
+  <rect x="160" y="575" width="1160" height="210" rx="30" fill="#dfe8f5"/>
+  <text x="220" y="645" class="step">推荐团队约定</text>
+  <text x="220" y="695" class="cmd">echo 18.17.1 &gt; .nvmrc</text>
+  <text x="220" y="735" class="body">把 Node 版本固化到仓库里，比在 README 写“请使用 Node 18”更有效。</text>
+</svg>

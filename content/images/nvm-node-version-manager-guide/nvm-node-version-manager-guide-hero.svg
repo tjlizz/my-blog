@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="920" viewBox="0 0 1480 920" role="img" aria-labelledby="title desc">
+  <title id="title">NVM multi-version Node workflow</title>
+  <desc id="desc">A diagram showing one developer switching between Node 14, 18, and 20 across different projects with NVM.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f7fbf7"/>
+      <stop offset="100%" stop-color="#e7f4ea"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#6d8f78" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1f2d24; }
+      .h1 { font-size: 52px; font-weight: 700; }
+      .sub { font-size: 25px; fill: #5a6c61; }
+      .card-title { font-size: 34px; font-weight: 700; }
+      .card-body { font-size: 24px; fill: #415045; }
+      .tag { font-size: 22px; font-weight: 700; fill: #ffffff; }
+      .cmd { font-size: 24px; font-weight: 700; fill: #123524; }
+      .tiny { font-size: 20px; fill: #4f5f55; }
+    </style>
+  </defs>
+  <rect width="1480" height="920" fill="url(#bg)"/>
+  <text x="100" y="100" class="h1">一个 NVM，把同一台电脑变成多个 Node 环境</text>
+  <text x="100" y="145" class="sub">项目切来切去时，真正需要的是“快速换版本，不互相污染”。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="100" y="235" width="360" height="240" rx="30" fill="#ffffff"/>
+    <rect x="560" y="235" width="360" height="240" rx="30" fill="#ffffff"/>
+    <rect x="1020" y="235" width="360" height="240" rx="30" fill="#ffffff"/>
+  </g>
+
+  <g>
+    <rect x="135" y="270" width="118" height="42" rx="21" fill="#4b8d62"/>
+    <text x="172" y="298" class="tag">Node 14</text>
+    <text x="135" y="355" class="card-title">老项目维护</text>
+    <text x="135" y="395" class="card-body">package.json 写着</text>
+    <text x="135" y="430" class="card-body">"engines": "&gt;=14 &lt;16"</text>
+  </g>
+
+  <g>
+    <rect x="595" y="270" width="118" height="42" rx="21" fill="#2d7d57"/>
+    <text x="632" y="298" class="tag">Node 18</text>
+    <text x="595" y="355" class="card-title">当前主力业务</text>
+    <text x="595" y="395" class="card-body">大多数构建工具链</text>
+    <text x="595" y="430" class="card-body">还停在 LTS 区间</text>
+  </g>
+
+  <g>
+    <rect x="1055" y="270" width="118" height="42" rx="21" fill="#166347"/>
+    <text x="1092" y="298" class="tag">Node 20</text>
+    <text x="1055" y="355" class="card-title">新项目开发</text>
+    <text x="1055" y="395" class="card-body">性能、新特性、</text>
+    <text x="1055" y="430" class="card-body">更现代的默认能力</text>
+  </g>
+
+  <path d="M740 520 L740 595" stroke="#86b396" stroke-width="10" stroke-linecap="round"/>
+  <rect x="505" y="595" width="470" height="132" rx="28" fill="#d6ebdb"/>
+  <text x="560" y="655" class="cmd">nvm use 14   /   nvm use 18   /   nvm use 20</text>
+  <text x="560" y="695" class="tiny">切换的是当前终端上下文，不是把整台电脑重装一遍。</text>
+
+  <path d="M280 475 C280 560, 410 640, 505 660" fill="none" stroke="#9bc3a8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M740 475 C740 555, 740 590, 740 595" fill="none" stroke="#9bc3a8" stroke-width="8" stroke-linecap="round"/>
+  <path d="M1200 475 C1200 560, 1070 640, 975 660" fill="none" stroke="#9bc3a8" stroke-width="8" stroke-linecap="round"/>
+
+  <rect x="100" y="780" width="1280" height="60" rx="18" fill="#193228"/>
+  <text x="140" y="819" class="tag">核心价值：多个项目各用各的 Node 版本，npm 全局包和依赖环境也跟着隔离。</text>
+</svg>

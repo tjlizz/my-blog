@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960" role="img" aria-labelledby="title desc">
+  <title id="title">SSL validation depth ladder</title>
+  <desc id="desc">A three-step ladder showing how DV, OV, and EV differ in validation depth and trust signals.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#ebf1fb"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#7f8ba8" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1f2b46; }
+      .h1 { font-size: 52px; font-weight: 700; }
+      .sub { font-size: 26px; fill: #59647d; }
+      .step-title { font-size: 38px; font-weight: 700; }
+      .step-body { font-size: 24px; fill: #42506d; }
+      .tag { font-size: 20px; font-weight: 700; fill: #ffffff; }
+      .num { font-size: 30px; font-weight: 800; fill: #ffffff; }
+    </style>
+  </defs>
+  <rect width="1440" height="960" fill="url(#bg)"/>
+  <text x="100" y="110" class="h1">DV、OV、EV 的差别，本质上是“验你是谁”有多严格</text>
+  <text x="100" y="160" class="sub">三者都能把链路加密好，真正拉开差距的是身份核验深度与信任展示方式。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="610" width="370" height="190" rx="28" fill="#dff4ea"/>
+    <rect x="535" y="430" width="370" height="230" rx="28" fill="#fff1cf"/>
+    <rect x="960" y="220" width="370" height="280" rx="28" fill="#ffdfe1"/>
+  </g>
+
+  <g>
+    <circle cx="175" cy="670" r="30" fill="#2ea36a"/>
+    <text x="164" y="680" class="num">1</text>
+    <rect x="220" y="635" width="92" height="34" rx="17" fill="#2ea36a"/>
+    <text x="248" y="659" class="tag">DV</text>
+    <text x="150" y="725" class="step-title">确认域名控制权</text>
+    <text x="150" y="765" class="step-body">DNS 记录、文件校验或邮箱回复即可。</text>
+  </g>
+
+  <g>
+    <circle cx="600" cy="490" r="30" fill="#d28a00"/>
+    <text x="589" y="500" class="num">2</text>
+    <rect x="645" y="455" width="92" height="34" rx="17" fill="#d28a00"/>
+    <text x="672" y="479" class="tag">OV</text>
+    <text x="575" y="545" class="step-title">再确认组织真实存在</text>
+    <text x="575" y="585" class="step-body">营业执照、企业电话、授权关系都要核验。</text>
+    <text x="575" y="620" class="step-body">有人工审核，签发速度因此明显变慢。</text>
+  </g>
+
+  <g>
+    <circle cx="1025" cy="280" r="30" fill="#d94b62"/>
+    <text x="1014" y="290" class="num">3</text>
+    <rect x="1070" y="245" width="92" height="34" rx="17" fill="#d94b62"/>
+    <text x="1097" y="269" class="tag">EV</text>
+    <text x="1000" y="335" class="step-title">做最严格的法律级审核</text>
+    <text x="1000" y="375" class="step-body">除企业存在外，还会核实地址、法人或授权代表。</text>
+    <text x="1000" y="410" class="step-body">更适合高价值交易、强合规和抗钓鱼场景。</text>
+  </g>
+
+  <path d="M420 610 C510 560, 520 520, 585 470" fill="none" stroke="#93a8d3" stroke-width="8" stroke-linecap="round"/>
+  <path d="M845 430 C930 375, 945 330, 1010 290" fill="none" stroke="#93a8d3" stroke-width="8" stroke-linecap="round"/>
+
+  <rect x="100" y="845" width="1240" height="58" rx="18" fill="#1f2b46"/>
+  <text x="150" y="883" class="tag">结论：你付费买到的主要不是更强加密，而是更重的身份背书。</text>
+</svg>

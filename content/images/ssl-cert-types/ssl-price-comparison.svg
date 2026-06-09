@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">SSL certificate pricing overview</title>
+  <desc id="desc">Comparison of DV, OV, and EV SSL certificate validation depth, issuance speed, and price range.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f5f7fb"/>
+      <stop offset="100%" stop-color="#e7eef9"/>
+    </linearGradient>
+    <linearGradient id="card1" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#dff4ea"/>
+      <stop offset="100%" stop-color="#c8ead9"/>
+    </linearGradient>
+    <linearGradient id="card2" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fff1cf"/>
+      <stop offset="100%" stop-color="#fde1a9"/>
+    </linearGradient>
+    <linearGradient id="card3" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#ffdfe1"/>
+      <stop offset="100%" stop-color="#ffc4c9"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#7f8ba8" flood-opacity="0.18"/>
+    </filter>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1d2a44; }
+      .muted { fill: #5b6782; font-size: 28px; }
+      .headline { font-size: 56px; font-weight: 700; }
+      .sub { font-size: 28px; font-weight: 500; }
+      .card-title { font-size: 40px; font-weight: 700; }
+      .price { font-size: 52px; font-weight: 800; }
+      .label { font-size: 24px; font-weight: 700; letter-spacing: 2px; }
+      .body { font-size: 24px; }
+      .pill { font-size: 20px; font-weight: 700; }
+    </style>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <circle cx="1380" cy="120" r="180" fill="#dbe7fb"/>
+  <circle cx="170" cy="820" r="240" fill="#edf3ff"/>
+  <text x="120" y="120" class="headline">SSL 证书价格为什么能从 0 到上万？</text>
+  <text x="120" y="170" class="sub">核心加密能力相同，价格差异主要来自验证深度、人工审核与品牌/保险服务。</text>
+
+  <g filter="url(#shadow)">
+    <rect x="110" y="240" rx="28" ry="28" width="420" height="500" fill="url(#card1)"/>
+    <rect x="590" y="240" rx="28" ry="28" width="420" height="500" fill="url(#card2)"/>
+    <rect x="1070" y="240" rx="28" ry="28" width="420" height="500" fill="url(#card3)"/>
+  </g>
+
+  <g>
+    <text x="150" y="300" class="label">DV</text>
+    <text x="150" y="350" class="card-title">域名验证型</text>
+    <text x="150" y="420" class="price">¥0 - ¥150/年</text>
+    <rect x="150" y="455" rx="18" ry="18" width="116" height="40" fill="#ffffff" opacity="0.9"/>
+    <text x="176" y="482" class="pill">最快几分钟</text>
+    <text x="150" y="545" class="body">验证内容</text>
+    <text x="150" y="582" class="muted">只验证你控制这个域名</text>
+    <text x="150" y="640" class="body">适合场景</text>
+    <text x="150" y="677" class="muted">博客、作品集、测试环境</text>
+  </g>
+
+  <g>
+    <text x="630" y="300" class="label">OV</text>
+    <text x="630" y="350" class="card-title">组织验证型</text>
+    <text x="630" y="420" class="price">¥250 - ¥1,500/年</text>
+    <rect x="630" y="455" rx="18" ry="18" width="132" height="40" fill="#ffffff" opacity="0.9"/>
+    <text x="655" y="482" class="pill">1 - 3 个工作日</text>
+    <text x="630" y="545" class="body">验证内容</text>
+    <text x="630" y="582" class="muted">域名 + 企业身份真实性</text>
+    <text x="630" y="640" class="body">适合场景</text>
+    <text x="630" y="677" class="muted">企业官网、B2B、电商后台</text>
+  </g>
+
+  <g>
+    <text x="1110" y="300" class="label">EV</text>
+    <text x="1110" y="350" class="card-title">扩展验证型</text>
+    <text x="1110" y="420" class="price">¥500 - ¥10,000+/年</text>
+    <rect x="1110" y="455" rx="18" ry="18" width="138" height="40" fill="#ffffff" opacity="0.9"/>
+    <text x="1135" y="482" class="pill">3 - 7 个工作日</text>
+    <text x="1110" y="545" class="body">验证内容</text>
+    <text x="1110" y="582" class="muted">域名 + 严格法律/组织核验</text>
+    <text x="1110" y="640" class="body">适合场景</text>
+    <text x="1110" y="677" class="muted">金融、支付、强合规业务</text>
+  </g>
+
+  <line x1="320" y1="785" x2="1280" y2="785" stroke="#8aa0ca" stroke-width="6" stroke-linecap="round"/>
+  <text x="260" y="840" class="muted">验证深度与人工参与越高，价格通常越高</text>
+  <text x="1110" y="840" class="muted">但 TLS 加密强度本身并不会更高</text>
+</svg>

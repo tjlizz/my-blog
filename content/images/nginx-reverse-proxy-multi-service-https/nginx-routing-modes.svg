@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="920" viewBox="0 0 1480 920" role="img" aria-labelledby="title desc">
+  <title id="title">Nginx path routing vs subdomain routing</title>
+  <desc id="desc">A side-by-side comparison of path-based routing and subdomain-based routing in Nginx.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#fbfcfd"/>
+      <stop offset="100%" stop-color="#eef2f8"/>
+    </linearGradient>
+    <style>
+      text { font-family: "Microsoft YaHei", "PingFang SC", sans-serif; fill: #1f2941; }
+      .h1 { font-size: 50px; font-weight: 700; }
+      .sub { font-size: 25px; fill: #5a647c; }
+      .title { font-size: 31px; font-weight: 700; }
+      .body { font-size: 23px; fill: #44506a; }
+      .tag { font-size: 21px; font-weight: 700; fill: #ffffff; }
+    </style>
+  </defs>
+  <rect width="1480" height="920" fill="url(#bg)"/>
+  <text x="100" y="95" class="h1">路径转发和子域名转发，解决的是两类不同问题</text>
+  <text x="100" y="140" class="sub">前者适合共享主域名，后者适合多个服务都想占根路径 `/`。</text>
+
+  <g>
+    <rect x="95" y="220" width="600" height="560" rx="32" fill="#ffffff"/>
+    <rect x="145" y="255" width="180" height="42" rx="21" fill="#2f7ec7"/>
+    <text x="190" y="283" class="tag">路径转发</text>
+    <text x="145" y="355" class="title">同一个域名，按 URL 路径拆服务</text>
+    <text x="145" y="415" class="body">`example.com/` → 前端</text>
+    <text x="145" y="455" class="body">`example.com/api/` → API</text>
+    <text x="145" y="495" class="body">`example.com/blog/` → 博客</text>
+    <text x="145" y="575" class="body">优点：域名少、证书管理集中。</text>
+    <text x="145" y="615" class="body">限制：如果多个服务都想占 `/`，就会冲突。</text>
+  </g>
+
+  <g>
+    <rect x="785" y="220" width="600" height="560" rx="32" fill="#ffffff"/>
+    <rect x="835" y="255" width="180" height="42" rx="21" fill="#d28a00"/>
+    <text x="873" y="283" class="tag">子域名转发</text>
+    <text x="835" y="355" class="title">不同子域名，各自保有完整根路径</text>
+    <text x="835" y="415" class="body">`app.example.com/` → 前端</text>
+    <text x="835" y="455" class="body">`api.example.com/` → API</text>
+    <text x="835" y="495" class="body">`blog.example.com/` → 博客</text>
+    <text x="835" y="575" class="body">优点：服务边界清晰，路径结构最自然。</text>
+    <text x="835" y="615" class="body">前提：DNS 和证书要覆盖这些子域名。</text>
+  </g>
+
+  <line x1="740" y1="250" x2="740" y2="760" stroke="#cad4e6" stroke-width="4"/>
+
+  <rect x="100" y="825" width="1280" height="52" rx="18" fill="#dde6f4"/>
+  <text x="135" y="859" class="body">判断标准：只要多个服务都想吃根路径 `/`，就优先上子域名；否则路径转发通常更省事。</text>
+</svg>
